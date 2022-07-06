@@ -38,7 +38,11 @@ export default function WeatherApp() {
             </div>
           </div>
         </div>
-        <a href="https://github.com/valhalyria/weather-react" target="blank">
+        <a
+          href="https://github.com/valhalyria/weather-react"
+          target="blank"
+          rel="noreferrer"
+        >
           Open-source code by Melanie Defawe
         </a>
       </div>
