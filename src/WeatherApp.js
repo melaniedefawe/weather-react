@@ -25,11 +25,11 @@ export default function WeatherApp() {
                 />
                 <br />
                 <h1 className="temperature">8 </h1>
-                <a href="#" className="celsius active">
+                <a href="#" className="celsius active" rel="noreferrer">
                   °C
                 </a>
                 <span className="separator"> | </span>
-                <a href="#" className="fahrenheit">
+                <a href="#" className="fahrenheit" rel="noreferrer">
                   °F
                 </a>
                 <p className="description">Clear</p>
