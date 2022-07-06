@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import "./styles.css";
 import Search from "./Search";
 import CityDate from "./CityDate";
