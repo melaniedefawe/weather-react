@@ -11,8 +11,9 @@ export default function WeatherApp() {
 
   function handleResponse(response) {
     setWeatherData({
-      temperature: response.data.main.temp,
       city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
@@ -30,11 +31,7 @@ export default function WeatherApp() {
             <Search />
             <div className="row">
               <div className="col-7">
-                <CityDate
-                  city={weatherData.city}
-                  day="Wednesday"
-                  hour="11:10"
-                />
+                <CityDate city={weatherData.city} date={weatherData.date} />
                 <br />
                 <WeatherDetail
                   humidity={weatherData.humidity}
