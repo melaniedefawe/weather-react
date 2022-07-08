@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./styles.css";
 import axios from "axios";
-import Search from "./Search";
-import CityDate from "./CityDate";
-import WeatherDetail from "./WeatherDetail";
+import CurrentWeather from "./CurrentWeather";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function WeatherApp() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState("");
 
   function handleResponse(response) {
     setWeatherData({
@@ -23,46 +22,50 @@ export default function WeatherApp() {
     });
   }
 
+  function handleCityChange(event) {
+    event.preventDefault();
+    setCity(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const apiKey = "7fbc99e26b128af1fc9815e393cfbb4b";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="App">
         <div className="container">
           <div className="box">
-            <Search />
-            <div className="row">
-              <div className="col-7">
-                <CityDate city={weatherData.city} date={weatherData.date} />
-                <br />
-                <WeatherDetail
-                  humidity={weatherData.humidity}
-                  wind={weatherData.wind}
-                  rain={0}
-                />
-              </div>
-              <div className="col-4 small-box">
-                <div className="current">
-                  <img
-                    src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-                    alt={weatherData.description}
+            <form onSubmit={handleSubmit}>
+              <div className="row">
+                <div className="col-6">
+                  <input
+                    type="text"
+                    placeholder="Type a city..."
+                    className="searchbar"
+                    onChange={handleCityChange}
                   />
-                  <br />
-                  <h1 className="temperature">
-                    {Math.round(weatherData.temperature)}{" "}
-                  </h1>
-                  <a href="/" className="celsius active" rel="noreferrer">
-                    °C
-                  </a>
-                  <span className="separator"> | </span>
-                  <a href="/" className="fahrenheit" rel="noreferrer">
-                    °F
-                  </a>
-                  <p className="description">{weatherData.description}</p>
-                  <p className="felt-temperature">
-                    Feels like {Math.round(weatherData.felt)}°C
-                  </p>
+                </div>
+                <div className="col-2">
+                  <input
+                    type="submit"
+                    value="Search"
+                    className="search-button"
+                  />
+                </div>
+                <div className="col-2">
+                  <input
+                    type="submit"
+                    value="Current location"
+                    className="search-button"
+                  />
                 </div>
               </div>
-            </div>
+            </form>
+            <CurrentWeather data={weatherData} />
           </div>
           <a
             href="https://github.com/valhalyria/weather-react"
@@ -76,8 +79,8 @@ export default function WeatherApp() {
     );
   } else {
     const apiKey = "7fbc99e26b128af1fc9815e393cfbb4b";
-    let city = "Berlin";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let defaultCity = "Berlin";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 }
