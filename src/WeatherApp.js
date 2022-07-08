@@ -3,6 +3,7 @@ import "./styles.css";
 import Search from "./Search";
 import CityDate from "./CityDate";
 import WeatherDetail from "./WeatherDetail";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function WeatherApp() {
   return (
