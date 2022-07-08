@@ -42,7 +42,7 @@ export default function WeatherApp() {
                   rain={0}
                 />
               </div>
-              <div class="col-4 small-box">
+              <div className="col-4 small-box">
                 <div className="current">
                   <img
                     src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}

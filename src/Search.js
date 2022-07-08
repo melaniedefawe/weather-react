@@ -12,7 +12,7 @@ export default function Search() {
             className="searchbar"
           />
         </div>
-        <div class="col-2">
+        <div className="col-2">
           <input type="submit" value="Search" className="search-button" />
         </div>
         <div className="col-2">
