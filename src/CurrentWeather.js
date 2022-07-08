@@ -1,6 +1,7 @@
 import React from "react";
 import WeatherDetail from "./WeatherDetail";
 import CityDate from "./CityDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeather(props) {
   return (
@@ -16,10 +17,7 @@ export default function CurrentWeather(props) {
       </div>
       <div className="col-4 small-box">
         <div className="current">
-          <img
-            src={`http://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
-            alt={props.data.description}
-          />
+          <WeatherIcon code={props.data.icon} alt={props.data.description} />
           <br />
           <h1 className="temperature">{Math.round(props.data.temperature)} </h1>
           <a href="/" className="celsius active" rel="noreferrer">
