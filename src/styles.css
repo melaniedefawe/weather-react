@@ -1,9 +1,15 @@
+:root {
+  --primary-color: #6643b5;
+  --highlight-color: #430f58;
+  --background-color: rgb(213, 222, 245, 70%);
+}
+
 h1,
 h2,
 h3,
 p,
 div {
-  color: #430f58;
+  color: var(--highlight-color);
 }
 
 form {
@@ -18,35 +24,33 @@ img {
   max-width: 64px;
 }
 
-.temperature:hover,
-.city:hover,
-.temp-forecast:hover,
-.current-detail:hover {
-  color: #6643b5;
-  cursor: default;
+.box {
+  border: 2px solid var(--primary-color);
+  margin-top: 10px;
+  padding: 12px 10px 5px 10px;
+  max-width: 600px;
+  background-color: var(--background-color);
 }
 
-.active {
-  color: #430f58;
-  cursor: default;
-}
-
-.active:hover {
-  color: #430f58;
-  cursor: default;
+.small-box {
+  border: 2px dotted var(--primary-color);
+  padding: 20px;
+  margin: 15px;
+  padding-top: 7px;
+  text-align: center;
 }
 
 .searchbar {
   background: transparent;
-  border: 1px solid #6643b5;
+  border: 1px solid var(--primary-color);
   width: 100%;
   height: 100%;
 }
 
 .search-button {
-  color: #430f58;
+  color: var(--highlight-color);
   background-color: #d5def5;
-  border: 1px solid #6643b5;
+  border: 1px solid var(--primary-color);
   border-radius: 20px;
   padding: 6px 12px;
   font-size: 20px;
@@ -55,7 +59,7 @@ img {
 
 .search-button:hover {
   cursor: pointer;
-  background-color: #6643b5;
+  background-color: var(--primary-color);
   border: 1px solid #d5def5;
   color: #d5def5;
 }
@@ -103,6 +107,24 @@ img {
   font-weight: bolder;
 }
 
+.active {
+  color: var(--highlight-color);
+  cursor: default;
+}
+
+.active:hover {
+  color: var(--highlight-color);
+  cursor: default;
+}
+
+.temperature:hover,
+.city:hover,
+.temp-forecast:hover,
+.current-detail:hover {
+  color: var(--primary-color);
+  cursor: default;
+}
+
 .day-forecast {
   font-size: 20px;
 }
@@ -125,22 +147,6 @@ img {
 .min-temp {
   color: gray;
   font-weight: lighter;
-}
-
-.box {
-  border: 2px solid #6643b5;
-  margin-top: 10px;
-  padding: 12px 10px 5px 10px;
-  max-width: 600px;
-  background-color: rgb(213, 222, 245, 70%);
-}
-
-.small-box {
-  border: 2px dotted #6643b5;
-  padding: 20px;
-  margin: 15px;
-  padding-top: 7px;
-  text-align: center;
 }
 
 .celsius,
