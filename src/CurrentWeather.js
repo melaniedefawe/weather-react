@@ -1,5 +1,4 @@
 import React from "react";
-import WeatherDetail from "./WeatherDetail";
 import CityDate from "./CityDate";
 import WeatherIcon from "./WeatherIcon";
 
@@ -9,11 +8,15 @@ export default function CurrentWeather(props) {
       <div className="col-7">
         <CityDate city={props.data.city} date={props.data.date} />
         <br />
-        <WeatherDetail
-          humidity={props.data.humidity}
-          wind={props.data.wind}
-          rain={0}
-        />
+        <div>
+          <h2 className="detail">
+            Humidity:{" "}
+            <span className="current-detail">{props.data.humidity}%</span>
+          </h2>
+          <h2 className="detail">
+            Wind: <span className="current-detail">{props.data.wind} m/s</span>
+          </h2>
+        </div>
       </div>
       <div className="col-4 small-box">
         <div className="current">
