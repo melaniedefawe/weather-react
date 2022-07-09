@@ -54,7 +54,7 @@ export default function TempConversion(props) {
         <span className="fahrenheit active">°F</span>
         <p className="description">{props.description}</p>
         <p className="felt-temperature">
-          Feels like {Math.round(feltfahrenheit)}°C
+          Feels like {Math.round(feltfahrenheit)}°F
         </p>
       </span>
     );
