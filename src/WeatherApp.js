@@ -41,7 +41,7 @@ export default function WeatherApp() {
           <div className="box">
             <form onSubmit={handleSubmit}>
               <div className="row">
-                <div className="col-6">
+                <div className="col-7">
                   <input
                     type="text"
                     placeholder="Type a city..."
@@ -49,17 +49,10 @@ export default function WeatherApp() {
                     onChange={handleCityChange}
                   />
                 </div>
-                <div className="col-2">
+                <div className="col-4">
                   <input
                     type="submit"
                     value="Search"
-                    className="search-button"
-                  />
-                </div>
-                <div className="col-2">
-                  <input
-                    type="submit"
-                    value="Current location"
                     className="search-button"
                   />
                 </div>
