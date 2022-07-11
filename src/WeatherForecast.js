@@ -33,6 +33,8 @@ export default function WeatherForecast(props){
                               <span className="temp-forecast">{Math.round(dailyForecast.temp.max)}° | <span className="min-temp">{Math.round(dailyForecast.temp.min)}°C</span></span>
                            </div>
                            );
+                      } else {
+                        return null
                       }
                   })}
                 </div>
