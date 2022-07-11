@@ -20,6 +20,8 @@ export default function WeatherApp() {
       felt: response.data.main.feels_like,
       icon: response.data.weather[0].icon,
       ready: true,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
   }
 
@@ -61,7 +63,7 @@ export default function WeatherApp() {
             </form>
             <CurrentWeather data={weatherData} />
           </div>
-          <WeatherForecast />
+          <WeatherForecast lat={weatherData.lat} lon={weatherData.lon}/>
           <a
             href="https://github.com/valhalyria/weather-react"
             target="blank"
