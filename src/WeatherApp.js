@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import CurrentWeather from "./CurrentWeather";
+import WeatherForecast from "./WeatherForecast";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function WeatherApp() {
@@ -60,6 +61,7 @@ export default function WeatherApp() {
             </form>
             <CurrentWeather data={weatherData} />
           </div>
+          <WeatherForecast />
           <a
             href="https://github.com/valhalyria/weather-react"
             target="blank"

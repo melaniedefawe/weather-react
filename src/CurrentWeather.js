@@ -21,7 +21,7 @@ export default function CurrentWeather(props) {
       </div>
       <div className="col-4 small-box">
         <div className="current">
-          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <WeatherIcon code={props.data.icon} alt={props.data.description} size={52}/>
           <br />
           <TempConversion
             celsius={props.data.temperature}
