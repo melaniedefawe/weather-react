@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecast(props){
@@ -9,6 +9,10 @@ export default function WeatherForecast(props){
     }
     let [ready, setReady] = useState(false);
     let [forecastData, setForecastData] = useState();
+    
+    useEffect (() => {
+      setReady(false);
+    }, [props.lat, props.lon]);
 
 
     if (ready) {
